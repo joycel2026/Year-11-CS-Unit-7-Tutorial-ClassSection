@@ -1,8 +1,6 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-
-
 public class ClassSectionTester {
 
     private Student student1;
@@ -10,6 +8,8 @@ public class ClassSectionTester {
     private Student student3;
     private Student student4;
     private ClassSection cs;
+
+    static private int testsPassed = 0;
 
 
     public void setUp() {
@@ -34,40 +34,51 @@ public class ClassSectionTester {
     // Test 1
     public void TestForFirstName() {
         setUp();
-        assertEquals("Adrian", student1.getFirstName(), "Make sure first name property is initialized correctly!");
+        assertEquals("Make sure first name property is initialized correctly!", student1.getFirstName(), "Adrian");
         tearDown();
+        testsPassed++;
     }
 
     @Test
     // Test 2
     public void TestForLastName() {
         setUp();
-        assertEquals("Wong", student1.getLastName(), "Make sure last name property is correct!");
+        assertEquals("Make sure last name property is correct!", student1.getLastName(), "Wong");
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 3
     public void TestForAge() {
         setUp();
-        assertEquals(17, student1.getAge(), "Make sure age property is correct!");
+        assertEquals("Make sure age property is correct!", student1.getAge(), 17);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 4
     public void TestForYearLevel() {
         setUp();
-        assertEquals(12, student1.getYearLevel(), "Make sure year level is correct!");
+        assertEquals("Make sure year level is correct!", student1.getYearLevel(), 12);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 5
     public void TestForToString() {
         setUp();
-        assertEquals("Student{id=77, firstName='Adrian', lastName='Wong', age=17, yearLevel=12}", student1.toString(), "Make sure toString is correct!");
+        int i = testsPassed*4 +1;
+        String result = "Student{id="+ i+", firstName='Adrian', lastName='Wong', age=17}";
+        assertEquals("Make sure toString is correct!", student1.toString(), result);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
@@ -75,8 +86,10 @@ public class ClassSectionTester {
     public void TestForSetFirstName() {
         setUp();
         student1.setFirstName("Michaela");
-        assertEquals("Michaela", student1.getFirstName(), "Make sure that the setter method for first name is correct!" );
+        assertEquals("Make sure that the setter method for first name is correct!", student1.getFirstName(), "Michaela");
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
@@ -84,8 +97,10 @@ public class ClassSectionTester {
     public void TestForSetLastName() {
         setUp();
         student1.setLastName("Swift");
-        assertEquals("Swift", student1.getLastName(), "Make sure that the setter method for last name is correct!");
+        assertEquals("Make sure that the setter method for last name is correct!", student1.getLastName(), "Swift");
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
@@ -93,8 +108,10 @@ public class ClassSectionTester {
     public void TestForSetAge() {
         setUp();
         student1.setAge(21);
-        assertEquals(21, student1.getAge(), "Make sure that the setter method for age is correct!");
+        assertEquals("Make sure that the setter method for age is correct!", student1.getAge(), 21);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
@@ -102,114 +119,149 @@ public class ClassSectionTester {
     public void TestForSetYearLevel() {
         setUp();
         student1.setYearLevel(13);
-        assertEquals(13, student1.getYearLevel(), "Make sure that the setter method for year level is correct!");
+        assertEquals("Make sure that the setter method for year level is correct!", student1.getYearLevel(), 13);
         tearDown();
+        testsPassed++;
+
+    }
+
+    @Test
+    // Test 10
+    public void TestForSetId() {
+        setUp();
+        student1.setId(5);
+        assertEquals("Make sure that the setter method for id is correct!", student1.getId(), 5);
+        tearDown();
+        testsPassed++;
+
     }
 
     /** Tests for Class Section. **/
 
     @Test
-    // Test 10
+    // Test 11
     public void TestForClassSectionSubject() {
         setUp();
-        assertEquals("Art", cs.getSubject(), "Make sure that the subject is initialized correctly!");
+        assertEquals("Make sure that the subject is initialized correctly!", cs.getSubject(), "Art");
         tearDown();
-    }
+        testsPassed++;
 
-    @Test
-    // Test 11
-    public void TestForClassSectionYearLevel() {
-        setUp();
-        assertEquals(12, cs.getYearLevel(), "Make sure that the year level is initialized correctly!");
-        tearDown();
     }
 
     @Test
     // Test 12
-    public void TestForClassSectionCapacity() {
+    public void TestForClassSectionYearLevel() {
         setUp();
-        assertEquals(10, cs.getCapacity(), "Make sure that the capacity is initialized correctly!");
+        assertEquals("Make sure that the year level is initialized correctly!", cs.getYearLevel(), 12);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 13
-    public void TestForClassSectionToString() {
+    public void TestForClassSectionCapacity() {
         setUp();
-        assertEquals("ClassSection{subject='Art', capacity=10, yearLevel=12, students=[]}", cs.toString(), "Make sure that the toString method is implemented correctly!");
+        assertEquals("Make sure that the capacity is initialized correctly!", cs.getCapacity(), 10);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 14
-    public void TestForClassSectionSetSubject() {
+    public void TestForClassSectionToString() {
         setUp();
-        cs.setSubject("History");
-        assertEquals("History", cs.getSubject(), "Make sure that the setter method for subject is correct!");
+        assertEquals("Make sure that the toString method is implemented correctly!", cs.toString(), "ClassSection{subject='Art', capacity=10, students=[]}");
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 15
-    public void TestForClassSectionSetCapacity() {
+    public void TestForClassSectionSetSubject() {
         setUp();
-        cs.setCapacity(20);
-        assertEquals(20, cs.getCapacity(), "Make sure that the setter method for capacity is correct!");
+        cs.setSubject("History");
+        assertEquals("Make sure that the setter method for subject is correct!", cs.getSubject(), "History");
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 16
-    public void TestForClassSectionSetYearLevel() {
+    public void TestForClassSectionSetCapacity() {
         setUp();
-        cs.setYearLevel(13);
-        assertEquals(13, cs.getYearLevel(), "Make sure that the setter method for year level is correct!");
+        cs.setCapacity(20);
+        assertEquals("Make sure that the setter method for capacity is correct!", cs.getCapacity(), 20);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 17
-    public void TestForClassSectionAddStudentAddsStudentCorrectly() {
+    public void TestForClassSectionSetYearLevel() {
         setUp();
-        cs.addStudent(student1);
-        assertEquals(1, cs.getStudents().size(), "Make sure that the add student method adds a student to the class section!");
+        cs.setYearLevel(13);
+        assertEquals("Make sure that the setter method for year level is correct!", cs.getYearLevel(), 13);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 18
-    public void TestForClassSectionAddStudentDoesNotAddIncorrectYearLevel() {
+    public void TestForClassSectionAddStudentAddsStudentCorrectly() {
         setUp();
-        cs.addStudent(student2);
-        assertEquals(0, cs.getStudents().size(), "Make sure that the add student method doesn't add students of a different year level than the section allows!");
+        cs.addStudent(student1);
+        assertEquals("Make sure that the add student method adds a student to the class section!", cs.getStudents().size(), 1);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
     // Test 19
+    public void TestForClassSectionAddStudentDoesNotAddIncorrectYearLevel() {
+        setUp();
+        cs.addStudent(student2);
+        assertEquals("Make sure that the add student method doesn't add students of a different year level than the section allows!", cs.getStudents().size(), 0);
+        tearDown();
+        testsPassed++;
+
+    }
+
+    @Test
+    // Test 20
     public void TestForClassSectionAddStudentAddsMultipleStudentsCorrectly() {
         setUp();
         cs.addStudent(student1);
         cs.addStudent(student2);
         cs.addStudent(student3);
         cs.addStudent(student4);
-        assertEquals(2, cs.getStudents().size(), "Make sure that the add student method adds a student to the class section!");
+        assertEquals("Make sure that the add student method adds a student to the class section!", cs.getStudents().size(), 2);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
-    // Test 20
+    // Test 21
     public void TestForClassSectionRemoveStudentRemovesStudentCorrectly() {
         setUp();
         cs.addStudent(student1);
         cs.addStudent(student3);
         cs.removeStudent(student1);
-        assertEquals(false, cs.getStudents().contains(student1), "Make sure that the remove student method removes that student from the class section!");
+        assertEquals("Make sure that the remove student method removes that student from the class section!", cs.getStudents().contains(student1), false);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
-    // Test 21
+    // Test 22
     public void TestForClassSectionRemoveStudentRemovesMultipleStudentsCorrectly() {
         setUp();
         cs.addStudent(student1);
@@ -218,19 +270,35 @@ public class ClassSectionTester {
         cs.addStudent(student4);
         cs.removeStudent(student1);
         cs.removeStudent(student4);
-        assertEquals(0, cs.getStudents().size(),"Make sure that the add student and remove student methods work correctly!");
+        assertEquals("Make sure that the add student and remove student methods work correctly!", cs.getStudents().size(), 0);
         tearDown();
+        testsPassed++;
+
     }
 
     @Test
-    // Test 22
+    // Test 23
     public void TestIfMultipleIdenticalStudentObjectsCanBeAdded() {
         setUp();
         cs.addStudent(student1);
         cs.addStudent(student1);
-        assertEquals(1, cs.getStudents().size(), "Make sure that no two identical Student objects can be added to a class section!");
+        assertEquals("Make sure that no two identical Student objects can be added to a class section!", cs.getStudents().size(), 1);
         tearDown();
+        testsPassed++;
+
     }
 
+    @Test
+    // Test 24
+    public void TestIfMultipleStudentsWithTheSameIdCanBeAdded() {
+        setUp();
+        cs.addStudent(student1);
+        student2.setId(1);
+        cs.addStudent(student2);
+        assertEquals("Make sure that students with conflicting ids cannot be added to a class section!", cs.getStudents().contains(student2), false);
+        tearDown();
+        testsPassed++;
+
+    }
 
 }
